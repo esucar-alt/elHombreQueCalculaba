@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de Problemas Matemáticos</title>
+    <link rel="stylesheet" href="css/styles2.css">
+</head>
+<header>
+    <h1>Resolución de Problemas Matemáticos</h1>
+    <p>Solución interactiva a los Ejercicios 12 y 13</p>
+
+    <div class="selector-box">
+        <label for="selectProblema">Seleccionar Ejercicio:</label>
+        <select id="selectProblema" class="select-problema" onchange="cambiarProblema()">
+            <option value="p12">Problema 12: Raíces Cuadráticas (quadroots)</option>
+            <option value="p13">Problema 13: Estimación del valor de Pi (π)</option>
+        </select>
+    </div>
+</header>
+
+<body>
+
+    <!-- =========================================================
+         HEADER Y MENÚ DE NAVEGACIÓN
+         ========================================================= -->
+
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         ========================================================= -->
+    <main>
+
+        <!-- -----------------------------------------------------
+             PROBLEMA 12: RAÍCES CUADRÁTICAS
+             ----------------------------------------------------- -->
+        <section id="secProblema12" class="card" style="display: block;">
+            <h2>Problema 12: Discriminante y Raíces (quadroots)</h2>
+
+            <div class="enunciado">
+                <strong>Ecuación:</strong> ax² + bx + c = 0 &nbsp;|&nbsp; <strong>Discriminante:</strong> D = b² -
+                4ac<br>
+                Calcula las raíces reales de acuerdo a los tres criterios del problema (D > 0, D = 0, D < 0). </div>
+
+                    <div class="formulario">
+                        <div class="botones-rapidos">
+                            <span style="font-size: 0.85em; font-weight: bold; color: #334e68;">Pruebas rápidas:</span>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(3, 6, 3)">(a) 3x² + 6x
+                                + 3 = 0</button>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(-3, 4, -6)">(b) -3x² +
+                                4x - 6 = 0</button>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(-3, 7, 5)">(c) -3x² +
+                                7x + 5 = 0</button>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); resolverCuadratica();">
+                            <div class="grid-inputs">
+                                <div class="campo">
+                                    <label for="coefA">Coeficiente a:</label>
+                                    <input type="number" id="coefA" step="any" value="3" required>
+                                </div>
+                                <div class="campo">
+                                    <label for="coefB">Coeficiente b:</label>
+                                    <input type="number" id="coefB" step="any" value="6" required>
+                                </div>
+                                <div class="campo">
+                                    <label for="coefC">Coeficiente c:</label>
+                                    <input type="number" id="coefC" step="any" value="3" required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-principal" onclick="resolverCuadratica()">Calcular
+                                Raíces</button>
+                        </form>
+                    </div>
+
+                    <div class="resultado-box">
+                        <h3>Salida del Programa:</h3>
+                        <div id="resProblema12">
+                            <p>Presiona el botón para calcular las raíces.</p>
+                        </div>
+                    </div>
+        </section>
+
+
+        <!-- -----------------------------------------------------
+             PROBLEMA 13: ESTIMACIÓN DE PI
+             ----------------------------------------------------- -->
+        <section id="secProblema13" class="card" style="display: none;">
+            <h2>Problema 13: Estimación de Pi (π) por Sumatoria</h2>
+
+            <div class="enunciado">
+                Estimación de π mediante la serie alternada:<br>
+                <strong>π ≈ 4 × ∑ [ (-1)<sup>k</sup> / (2k + 1) ]</strong> para k de 0 a (n - 1).<br>
+                Muestra la alta precisión equivalente a <em>format long</em> en MATLAB.
+            </div>
+
+            <div class="formulario">
+                <div class="botones-rapidos">
+                    <span style="font-size: 0.85em; font-weight: bold; color: #334e68;">Valores de n del
+                        problema:</span>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(100)">n = 100</button>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(10000)">n = 10,000</button>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(1000000)">n = 1,000,000</button>
+                </div>
+
+                <form onsubmit="event.preventDefault(); estimarPi();">
+                    <div class="campo" style="margin-bottom: 15px;">
+                        <label for="valN">Número de iteraciones (n):</label>
+                        <input type="number" id="valN" value="10000" min="1" max="10000000" required>
+                    </div>
+                    <button type="button" class="btn-principal" onclick="estimarPi()">Calcular Estimación de π</button>
+                </form>
+            </div>
+
+            <div class="resultado-box">
+                <h3>Resultado (Formato de Alta Precisión):</h3>
+                <div id="resProblema13">
+                    <p>Presiona el botón para calcular el valor aproximado de π.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         CÓDIGO JAVASCRIPT
+         ========================================================= -->
+    <script src="js/ejercicios1213.js">
+
+    </script>
+</body>
+<!-- =========================================================
+         FOOTER
+         ========================================================= -->
+<footer>
+    <p>Página generada para la resolución interactiva de ejercicios numéricos y algebraicos.</p>
+    <p>Desarrollado con <strong>HTML5, CSS y JavaScript Vanilla</strong>.</p>
+</footer>
+
+</html>
