@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de Problemas Matemáticos y Ejercicios Interactivos</title>
+    <!-- Dirección al archivo CSS unificado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         BARRA DE NAVEGACIÓN PRINCIPAL
+         ========================================================= -->
+    <header>
+        <h1>Resolución de Problemas Matemáticos e Historias</h1>
+        <p>Plataforma interactiva para la resolución de ejercicios matemáticos</p>
+
+        <nav class="navbar">
+            <label for="selectorSeccion">Seleccionar Sección / Ejercicio:</label>
+            <select id="selectorSeccion" class="select-ejercicio" onchange="cambiarSeccionPrincipal()">
+                <optgroup label="El Hombre que Calculaba">
+                    <option value="cap3">Capítulo 3: El reparto de los 35 camellos</option>
+                    <option value="cap8">Capítulo 8: El pago justo de los 8 panes</option>
+                </optgroup>
+                <optgroup label="Problemas Numéricos">
+                    <option value="p12">Problema 12: Raíces Cuadráticas (quadroots)</option>
+                    <option value="p13">Problema 13: Estimación del valor de Pi (π)</option>
+                </optgroup>
+            </select>
+        </nav>
+    </header>
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         ========================================================= -->
+    <main>
+
+        <!-- -----------------------------------------------------
+             EJERCICIO 1: CAPÍTULO 3 (LOS 35 CAMELLOS)
+             ----------------------------------------------------- -->
+        <section id="seccionCap3" class="ejercicio-card card" style="display: block;">
+            <h2>Capítulo 3: El Reparto de los 35 Camellos</h2>
+
+            <div class="historia-box enunciado">
+                <p><strong>La Historia:</strong> Tres hermanos deben repartirse una herencia de 35 camellos en
+                    proporciones fijas (1/2, 1/3 y 1/9). Como 35 no es divisible exactamente por 2, 3 ni 9, Beremiz
+                    Samir añade 1 camello prestado para sumar 36 y así realizar la división exacta, ¡sobrando camellos
+                    al final!</p>
+            </div>
+
+            <div class="formulario">
+                <h3>Formulario de Reparto</h3>
+                <form onsubmit="event.preventDefault(); calcularCapitulo3();">
+                    <div class="grid-campos grid-inputs">
+                        <div class="campo-grupo campo">
+                            <label for="camellosIniciales">Camellos iniciales:</label>
+                            <input type="number" id="camellosIniciales" value="35" min="1" required>
+                        </div>
+                        <div class="campo-grupo campo">
+                            <label for="divisor1">Divisor Hermano 1 (1/2):</label>
+                            <input type="number" id="divisor1" value="2" min="1" required>
+                        </div>
+                        <div class="campo-grupo campo">
+                            <label for="divisor2">Divisor Hermano 2 (1/3):</label>
+                            <input type="number" id="divisor2" value="3" min="1" required>
+                        </div>
+                        <div class="campo-grupo campo">
+                            <label for="divisor3">Divisor Hermano 3 (1/9):</label>
+                            <input type="number" id="divisor3" value="9" min="1" required>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-calcular btn-principal" onclick="calcularCapitulo3()">Calcular
+                        Reparto de Camellos</button>
+                </form>
+            </div>
+
+            <div class="resultado-box">
+                <h3>Resultado del Análisis</h3>
+                <div id="resCap3">
+                    <p>Haz clic en el botón para calcular la distribución de la herencia.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- -----------------------------------------------------
+             EJERCICIO 2: CAPÍTULO 8 (LOS 8 PANES)
+             ----------------------------------------------------- -->
+        <section id="seccionCap8" class="ejercicio-card card" style="display: none;">
+            <h2>Capítulo 8: El Pago Justo de los Panes</h2>
+
+            <div class="historia-box enunciado">
+                <p><strong>La Historia:</strong> Dos viajeros comparten sus panes con un jeque hambriento. El Viajero A
+                    aporta 5 panes y el Viajero B aporta 3. El jeque come porciones iguales a los demás y les deja 8
+                    monedas de oro como pago. La intuición diría repartir 5 y 3 monedas, pero Beremiz demuestra
+                    matemáticamente que la justicia exige 7 monedas para A y 1 para B.</p>
+            </div>
+
+            <div class="formulario">
+                <h3>Formulario del Pago Justo</h3>
+                <form onsubmit="event.preventDefault(); calcularCapitulo8();">
+                    <div class="grid-campos grid-inputs">
+                        <div class="campo-grupo campo">
+                            <label for="panesA">Panes del Viajero A:</label>
+                            <input type="number" id="panesA" value="5" min="1" required>
+                        </div>
+                        <div class="campo-grupo campo">
+                            <label for="panesB">Panes del Viajero B:</label>
+                            <input type="number" id="panesB" value="3" min="1" required>
+                        </div>
+                        <div class="campo-grupo campo">
+                            <label for="monedasTotal">Monedas recibidas:</label>
+                            <input type="number" id="monedasTotal" value="8" min="1" required>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-calcular btn-principal" onclick="calcularCapitulo8()">Calcular Pago
+                        Justo</button>
+                </form>
+            </div>
+
+            <div class="resultado-box">
+                <h3>Resultado del Análisis</h3>
+                <div id="resCap8">
+                    <p>Haz clic en el botón para calcular la distribución justa de monedas.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- -----------------------------------------------------
+             PROBLEMA 12: RAÍCES CUADRÁTICAS
+             ----------------------------------------------------- -->
+        <section id="secProblema12" class="card ejercicio-card" style="display: none;">
+            <h2>Problema 12: Discriminante y Raíces (quadroots)</h2>
+
+            <div class="enunciado historia-box">
+                <strong>Ecuación:</strong> ax² + bx + c = 0 &nbsp;|&nbsp; <strong>Discriminante:</strong> D = b² -
+                4ac<br>
+                Calcula las raíces reales de acuerdo a los tres criterios del problema (D > 0, D = 0, D < 0). </div>
+
+                    <div class="formulario">
+                        <div class="botones-rapidos">
+                            <span style="font-size: 0.85em; font-weight: bold; color: #334e68;">Pruebas rápidas:</span>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(3, 6, 3)">(a) 3x² + 6x
+                                + 3 = 0</button>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(-3, 4, -6)">(b) -3x² +
+                                4x - 6 = 0</button>
+                            <button type="button" class="btn-secundario" onclick="cargarEjemplo12(-3, 7, 5)">(c) -3x² +
+                                7x + 5 = 0</button>
+                        </div>
+
+                        <form onsubmit="event.preventDefault(); resolverCuadratica();">
+                            <div class="grid-inputs grid-campos">
+                                <div class="campo campo-grupo">
+                                    <label for="coefA">Coeficiente a:</label>
+                                    <input type="number" id="coefA" step="any" value="3" required>
+                                </div>
+                                <div class="campo campo-grupo">
+                                    <label for="coefB">Coeficiente b:</label>
+                                    <input type="number" id="coefB" step="any" value="6" required>
+                                </div>
+                                <div class="campo campo-grupo">
+                                    <label for="coefC">Coeficiente c:</label>
+                                    <input type="number" id="coefC" step="any" value="3" required>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-principal btn-calcular"
+                                onclick="resolverCuadratica()">Calcular Raíces</button>
+                        </form>
+                    </div>
+
+                    <div class="resultado-box">
+                        <h3>Salida del Programa:</h3>
+                        <div id="resProblema12">
+                            <p>Presiona el botón para calcular las raíces.</p>
+                        </div>
+                    </div>
+        </section>
+
+
+        <!-- -----------------------------------------------------
+             PROBLEMA 13: ESTIMACIÓN DE PI
+             ----------------------------------------------------- -->
+        <section id="secProblema13" class="card ejercicio-card" style="display: none;">
+            <h2>Problema 13: Estimación de Pi (π) por Sumatoria</h2>
+
+            <div class="enunciado historia-box">
+                Estimación de π mediante la serie alternada:<br>
+                <strong>π ≈ 4 × ∑ [ (-1)<sup>k</sup> / (2k + 1) ]</strong> para k de 0 a (n - 1).<br>
+                Muestra la alta precisión equivalente a <em>format long</em> en MATLAB.
+            </div>
+
+            <div class="formulario">
+                <div class="botones-rapidos">
+                    <span style="font-size: 0.85em; font-weight: bold; color: #334e68;">Valores de n del
+                        problema:</span>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(100)">n = 100</button>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(10000)">n = 10,000</button>
+                    <button type="button" class="btn-secundario" onclick="cargarN13(1000000)">n = 1,000,000</button>
+                </div>
+
+                <form onsubmit="event.preventDefault(); estimarPi();">
+                    <div class="campo campo-grupo" style="margin-bottom: 15px;">
+                        <label for="valN">Número de iteraciones (n):</label>
+                        <input type="number" id="valN" value="10000" min="1" max="10000000" required>
+                    </div>
+                    <button type="button" class="btn-principal btn-calcular" onclick="estimarPi()">Calcular Estimación
+                        de π</button>
+                </form>
+            </div>
+
+            <div class="resultado-box">
+                <h3>Resultado (Formato de Alta Precisión):</h3>
+                <div id="resProblema13">
+                    <p>Presiona el botón para calcular el valor aproximado de π.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================
+         FOOTER DE LA PÁGINA
+         ========================================================= -->
+    <footer>
+        <p><strong>Resolución de Problemas Matemáticos</strong> — Basado en relatos y ejercicios numéricos.</p>
+        <p>Desarrollado con HTML, CSS y JavaScript para el aprendizaje interactivo.</p>
+    </footer>
+
+    <!-- =========================================================
+         CÓDIGO JAVASCRIPT UNIFICADO
+         ========================================================= -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
